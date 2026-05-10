@@ -22,7 +22,6 @@ import {
   getAiReply,
   getEnergyModel,
   getTimeRemaining,
-  matchesLetterFilter,
   moveMonth,
   startOfMonth,
   toDateKey,
@@ -75,7 +74,6 @@ export default function App() {
   const focusTask = focusTarget
     ? quadrants[focusTarget.quadrantId].tasks.find((task) => task.id === focusTarget.taskId) ?? null
     : null;
-  const filteredLetters = letters.filter((letter) => matchesLetterFilter(letter, echoFilter));
   const energyModel = getEnergyModel(energy);
   const taskMarkedDates = allTasks.filter((task) => task.deadline).map((task) => toDateKey(task.deadline));
   const letterMarkedDates = letters.map((letter) => toDateKey(letter.date));
@@ -87,7 +85,7 @@ export default function App() {
     timestampLabel: formatMoodTimestamp(mood.createdAt),
   }));
 
-  const renderedLetters = filteredLetters.map((letter) => ({
+  const renderedLetters = letters.map((letter) => ({
     ...letter,
     dateLabel: formatLetterDate(letter.date),
   }));
@@ -282,7 +280,7 @@ export default function App() {
       <EchoScreen
         screen={screen}
         echoFilter={echoFilter}
-        filteredLetters={renderedLetters}
+        letters={renderedLetters}
         totalLetters={letters.length}
         unreadLetters={unreadLetters}
         onFilterChange={setEchoFilter}

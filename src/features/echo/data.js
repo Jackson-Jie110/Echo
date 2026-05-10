@@ -131,6 +131,7 @@ export function createInitialLetters() {
   return [
     {
       id: 'letter-1',
+      type: 'weekly',
       date: createMoment(baseDate, -2, 21, 10),
       tags: ['成长', '反思'],
       summary: '这一周你把复杂的事情慢慢理顺了，犹豫没有消失，但你开始带着它前进。',
@@ -142,6 +143,7 @@ export function createInitialLetters() {
     },
     {
       id: 'letter-2',
+      type: 'daily',
       date: createMoment(baseDate, -9, 20, 45),
       tags: ['温暖'],
       summary: '那些细微的美好像散落的光点，让你在疲惫里仍能感到被生活温柔接住。',
@@ -153,6 +155,7 @@ export function createInitialLetters() {
     },
     {
       id: 'letter-3',
+      type: 'monthly',
       date: createMoment(baseDate, -18, 21, 25),
       tags: ['勇气', '突破'],
       summary: '面对不确定时你没有转身离开，而是带着紧张迈出了那一步。',

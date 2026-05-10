@@ -4,13 +4,17 @@ import { IconCalendar } from '../components/icons';
 export function EchoScreen({
   screen,
   echoFilter,
-  filteredLetters,
+  letters,
   totalLetters,
   unreadLetters,
   onFilterChange,
   onOpenCalendar,
   onOpenLetter,
 }) {
+  const filteredLetters = letters
+    .filter((letter) => echoFilter === 'all' || letter.type === echoFilter)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
   return (
     <main className={`screen echo-screen ${screen === 'echo' ? 'active' : ''}`} data-screen="echo">
       <div className="echo-hero">

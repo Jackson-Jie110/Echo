@@ -235,16 +235,5 @@ export function matchesLetterFilter(letter, filter) {
     return true;
   }
 
-  const today = startOfDay(new Date());
-  const diffInDays = Math.floor((today.getTime() - startOfDay(letter.date).getTime()) / 86400000);
-
-  if (filter === 'day') {
-    return diffInDays <= 1;
-  }
-
-  if (filter === 'week') {
-    return diffInDays <= 7;
-  }
-
-  return diffInDays <= 31;
+  return letter.type === filter;
 }

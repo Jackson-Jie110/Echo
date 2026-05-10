@@ -66,9 +66,9 @@ export const TAB_ITEMS = [
 
 export const ECHO_FILTERS = [
   { key: 'all', label: '全部' },
-  { key: 'day', label: '日' },
-  { key: 'week', label: '周' },
-  { key: 'month', label: '月' },
+  { key: 'daily', label: '日' },
+  { key: 'weekly', label: '周' },
+  { key: 'monthly', label: '月' },
 ];
 
 export const MY_FEATURES = ['形象 DIY', 'MBTI 设定', '记忆管理', '设置'];
