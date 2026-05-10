@@ -1033,7 +1033,12 @@ textarea {
 }
 
 .light-screen {
-  padding-bottom: 176px;
+  overflow-y: hidden;
+}
+
+.light-screen.active {
+  display: flex;
+  flex-direction: column;
 }
 
 .light-header {
@@ -1094,9 +1099,14 @@ textarea {
 }
 
 .mood-list {
+  flex: 1;
   margin-top: 22px;
+  margin-bottom: 16px;
+  padding-right: 4px;
   display: grid;
   gap: 14px;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .mood-card {
@@ -1222,10 +1232,10 @@ textarea {
 }
 
 .input-bar {
-  position: absolute;
-  left: 18px;
-  right: 18px;
-  bottom: calc(var(--tabbar-h) + 6px);
+  position: relative;
+  flex-shrink: 0;
+  margin-top: auto;
+  width: 100%;
   padding: 14px 16px;
   border-radius: 26px;
   border: 1px solid var(--line);
