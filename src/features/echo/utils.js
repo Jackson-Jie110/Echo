@@ -135,32 +135,34 @@ export function getTimeRemaining(deadline, now) {
 }
 
 export function getEnergyModel(value) {
-  if (value < 32) {
+  if (value < 25) {
     return {
-      lowLabel: '先补一点电',
-      highLabel: '缓慢回暖',
-      care: '今天先把自己放在第一位，轻一点也没关系。',
-      recommendedQuadrant: 'important-not-urgent',
-      reminder: '先做一件重要但不急的小事，让自己重新稳下来。',
+      care: '现在先别催自己，把电量一点点接回来就好。',
+      recommendedQuadrant: 'not-urgent-not-important',
+      reminder: '适合先处理低压力的小事，给自己留一点恢复空间。',
     };
   }
 
-  if (value < 68) {
+  if (value < 50) {
     return {
-      lowLabel: '稳稳推进',
-      highLabel: '状态在线',
-      care: '按自己的节奏来就好，今天适合处理关键事项。',
-      recommendedQuadrant: 'urgent-important',
-      reminder: '此刻很适合专注推进一件真正重要的任务。',
+      care: '能量还在回升中，先把会打扰你的事情轻轻收住。',
+      recommendedQuadrant: 'urgent-not-important',
+      reminder: '优先清掉急但不太重要的杂事，减少心里的噪音。',
+    };
+  }
+
+  if (value < 75) {
+    return {
+      care: '状态正在变稳，适合把注意力放回真正重要的方向。',
+      recommendedQuadrant: 'important-not-urgent',
+      reminder: '推进重要但不急的任务，让今天慢慢积累确定感。',
     };
   }
 
   return {
-    lowLabel: '灵感涌动',
-    highLabel: '元气满满',
-    care: '现在的你很有力量，试着把最难的任务先推进一点。',
+    care: '现在的你很有力量，可以把高能量用在最关键的地方。',
     recommendedQuadrant: 'urgent-important',
-    reminder: '保持呼吸感，把这股能量用在最想完成的目标上。',
+    reminder: '适合集中处理重要且紧急的任务，趁状态在线向前推进。',
   };
 }
 

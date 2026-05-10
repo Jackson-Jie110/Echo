@@ -38,9 +38,10 @@ export function TodayScreen({
       </div>
 
       <div className="energy-bar">
+        <div className="energy-title">当下的精力条</div>
         <div className="energy-labels">
-          <span>{energyModel.lowLabel}</span>
-          <span>{energyModel.highLabel}</span>
+          <span>电量耗尽</span>
+          <span>精力满满</span>
         </div>
         <div className="energy-track">
           <div className="energy-fill" style={{ width: `${energy}%` }} />
@@ -61,13 +62,12 @@ export function TodayScreen({
       <div className="quadrants">
         {QUADRANT_ORDER.map((quadrantId) => {
           const quadrant = quadrants[quadrantId];
+          const isRecommended = energyModel.recommendedQuadrant === quadrantId;
 
           return (
             <button
               key={quadrantId}
-              className={`quadrant-card ${quadrantId} ${
-                energyModel.recommendedQuadrant === quadrantId ? 'recommended' : ''
-              }`}
+              className={`quadrant-card ${quadrantId} ${isRecommended ? 'recommended' : 'dimmed'}`}
               type="button"
               onClick={() => onOpenQuadrant(quadrantId)}
             >

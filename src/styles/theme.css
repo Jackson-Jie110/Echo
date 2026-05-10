@@ -744,6 +744,13 @@ textarea {
   border-radius: 24px;
 }
 
+.energy-title {
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  font-weight: 500;
+}
+
 .energy-labels {
   display: flex;
   justify-content: space-between;
@@ -808,7 +815,7 @@ textarea {
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(244, 235, 224, 0.98));
   box-shadow: var(--shadow-1);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, opacity 180ms ease, filter 180ms ease;
 }
 
 .quadrant-card:hover,
@@ -842,6 +849,13 @@ textarea {
   box-shadow:
     0 0 0 6px rgba(201, 138, 95, 0.08),
     0 18px 34px rgba(90, 67, 48, 0.1);
+}
+
+.quadrant-card.dimmed {
+  opacity: 0.55;
+  box-shadow: none;
+  border-color: transparent;
+  filter: grayscale(15%);
 }
 
 .quadrant-label {
