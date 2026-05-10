@@ -304,7 +304,7 @@ textarea {
 }
 
 .home-screen {
-  padding: 104px 18px 28px;
+  padding: 86px 28px 28px;
   display: none;
   align-items: center;
   flex-direction: column;
@@ -383,8 +383,8 @@ textarea {
 }
 
 .partner {
-  width: 176px;
-  height: 176px;
+  width: 168px;
+  height: 168px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -425,34 +425,78 @@ textarea {
 .greeting {
   position: relative;
   z-index: 1;
-  margin-top: 28px;
-  max-width: 15ch;
+  margin-top: 16px;
+  max-width: 13em;
+  padding: 8px 20px 0;
   text-align: center;
-  font-size: 18px;
-  line-height: 1.8;
-  color: var(--ink);
+  font-family: "Noto Serif SC", "STSong", serif;
+  font-size: clamp(20px, 4.4vw, 24px);
+  font-weight: 500;
+  line-height: 1.56;
+  letter-spacing: 0.04em;
+  color: #2c241f;
+  text-shadow: 0 1px 0 rgba(255, 250, 241, 0.72);
+}
+
+.greeting::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -6px;
+  width: min(154px, 74%);
+  height: 10px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle, rgba(201, 138, 95, 0.82) 0 2px, transparent 2.6px) center / 10px 10px no-repeat,
+    linear-gradient(90deg, transparent, rgba(201, 138, 95, 0.46), transparent) center / 100% 1px no-repeat;
+}
+
+.greeting::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -11px;
+  width: min(178px, 74%);
+  height: 12px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 50% 52%, rgba(201, 138, 95, 0.28) 0 3px, transparent 4px),
+    radial-gradient(ellipse at center, rgba(226, 185, 139, 0.24), transparent 72%);
+  filter: blur(0.15px);
+}
+
+.home-enter-hint {
+  position: relative;
+  z-index: 1;
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(127, 114, 103, 0.7);
 }
 
 .quick-entry {
-  width: calc(100% - 8px);
-  margin-top: 40px;
+  width: 100%;
+  margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px;
+  gap: 18px;
 }
 
 .entry-btn {
-  min-height: 104px;
+  min-height: 158px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  padding: 18px 14px 16px;
-  border-radius: 24px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(245, 237, 228, 0.98));
-  box-shadow: var(--shadow-1);
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(125, 103, 82, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(239, 232, 223, 0.64)),
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.62), transparent 38%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 18px 40px rgba(102, 78, 58, 0.07);
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
@@ -472,30 +516,107 @@ textarea {
 }
 
 .entry-icon-wrap {
-  width: 54px;
-  height: 54px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(242, 231, 218, 0.92));
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.48);
   color: var(--amber);
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.72) inset,
-    0 10px 22px rgba(134, 96, 67, 0.12);
+    0 8px 18px rgba(134, 96, 67, 0.08);
 }
 
 .entry-btn span {
+  margin-top: 12px;
   font-size: 13px;
-  color: var(--ink);
-  letter-spacing: 0.08em;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
 }
 
 .entry-card-copy {
   width: 100%;
-  display: grid;
-  justify-items: center;
-  gap: 10px;
+  min-height: 124px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 0;
+}
+
+.home-card-top {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.entry-btn strong {
+  display: block;
+  margin-top: 7px;
+  max-width: 100%;
+  color: var(--ink);
+  font-family: "Noto Serif SC", "STSong", serif;
+  font-size: clamp(20px, 6vw, 25px);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.entry-btn small {
+  display: block;
+  margin-top: auto;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.42;
+  letter-spacing: 0.01em;
+}
+
+.home-card-ring {
+  flex: 0 0 auto;
+}
+
+.home-card-ring .ring-bg {
+  fill: none;
+  stroke: rgba(205, 190, 174, 0.58);
+}
+
+.home-card-ring .ring-progress {
+  fill: none;
+  stroke: var(--amber);
+  stroke-linecap: round;
+  transform-origin: center;
+  transform: rotate(-90deg);
+}
+
+.home-intimacy-bar {
+  width: 88px;
+  height: 5px;
+  margin-top: 17px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(205, 190, 174, 0.58);
+}
+
+.home-intimacy-bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--amber);
+}
+
+.home-quote {
+  margin-top: 28px;
+  color: rgba(127, 114, 103, 0.62);
+  font-family: "Noto Serif SC", "STSong", serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.7;
 }
 
 .today-header,
@@ -2167,6 +2288,82 @@ textarea:focus-visible {
   .app {
     height: min(852px, calc(100vh - 24px));
     border-radius: 28px;
+  }
+
+  .home-screen {
+    padding: 78px 20px 22px;
+  }
+
+  .greeting {
+    margin-top: 13px;
+    max-width: 12.4em;
+    font-size: clamp(22px, 6.2vw, 25px);
+    line-height: 1.28;
+  }
+
+  .greeting::after {
+    bottom: -9px;
+    width: min(150px, 70%);
+  }
+
+  .quick-entry {
+    margin-top: 24px;
+    gap: 12px;
+  }
+
+  .entry-btn {
+    min-height: 136px;
+    padding: 13px 12px;
+  }
+
+  .entry-card-copy {
+    min-height: 108px;
+  }
+
+  .home-card-top {
+    gap: 8px;
+  }
+
+  .entry-icon-wrap {
+    width: 32px;
+    height: 32px;
+  }
+
+  .entry-icon-wrap svg {
+    width: 15px;
+    height: 15px;
+  }
+
+  .entry-btn span {
+    margin-top: 10px;
+    font-size: 11px;
+  }
+
+  .entry-btn strong {
+    margin-top: 5px;
+    font-size: 18px;
+    line-height: 1.14;
+  }
+
+  .entry-btn small {
+    font-size: 10.5px;
+    line-height: 1.34;
+  }
+
+  .home-card-ring {
+    width: 38px;
+    height: 38px;
+  }
+
+  .home-intimacy-bar {
+    width: 66px;
+    height: 4px;
+    margin-top: 14px;
+  }
+
+  .home-quote {
+    margin-top: 22px;
+    font-size: 12px;
   }
 }
 

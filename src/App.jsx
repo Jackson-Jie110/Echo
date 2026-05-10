@@ -240,7 +240,16 @@ export default function App() {
 
   return (
     <AppFrame screen={screen} onHome={showHome}>
-      <HomeScreen screen={screen} pendingEntry={pendingEntry} onOpen={openFromHome} />
+      <HomeScreen
+        screen={screen}
+        pendingEntry={pendingEntry}
+        completedTasks={completedTasks}
+        totalTasks={totalTasks}
+        completionRatio={completionRatio}
+        latestMoodToday={latestMoodToday}
+        unreadLetters={unreadLetters}
+        onOpen={openFromHome}
+      />
 
       <TodayScreen
         screen={screen}
