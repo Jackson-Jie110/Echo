@@ -14,6 +14,7 @@ export function MyScreen({ screen }) {
         <ProgressRing value={0.7} size={74} stroke={5} className="progress-ring" />
         <div className="understanding-text">70%</div>
       </div>
+      <div className="understanding-title">Echo对你的了解度</div>
 
       <div className="feature-list">
         {MY_FEATURES.map((feature) => (

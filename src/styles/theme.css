@@ -1668,6 +1668,14 @@ textarea {
   font-size: 18px;
 }
 
+.understanding-title {
+  margin-top: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
 .feature-list {
   margin-top: 26px;
   display: grid;
